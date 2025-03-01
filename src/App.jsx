@@ -11,76 +11,81 @@ import Testimonials from "./components/Testimonial";
 import Packages from "./components/Package";
 import ServicesComponent from "./components/Services";
 import Contact from "./components/Contact";
-
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={
-          <>
-          
-            <LandingPage />
-            <CaseStudies />
-            <Testimonials />
-            <Packages />
-            <Footer />
-          </>
-        } />
+        <Route path="/register" element={<Register />} />
 
-       <Route path="/login" element={
-          <>
-          
-            <Login/>
-            <Footer />
-          </>
-        } />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <>
+                <LandingPage />
+                <CaseStudies />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
 
-       <Route path="/register" element={
-          <>
-         
-            <Register/>
-            <Footer />
-          </>
-        } />
+        <Route
+          path="login"
+          element={
+            <>
+              <Login />
+              <Footer />
+            </>
+          }
+        />
 
-       
+        <Route
+          path="/services"
+          element={
+            <ProtectedRoute>
+              <>
+                <ServicesComponent />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
 
+        <Route
+          path="/case-studies"
+          element={
+            <ProtectedRoute>
+              <>
+                <CaseStudies />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <ProtectedRoute>
+              <>
+                <Contact />
+                <Footer />
+              </>
+            </ProtectedRoute>
+          }
+        />
 
-
-         <Route path="/services" element={
-          <>
-            <ServicesComponent />
-            <Testimonials/>
-            <Packages/>
-           <Footer/>
-          </>
-        } />
-        <Route path="/case-studies" element={
-          <>  
-          <CaseStudies />
-          <Testimonials/>
-          <Packages/>
-          <Footer/>
-          </>
-        
-      } />
-        <Route path="/contact-us" element={
-          <>
-          <Contact />
-          <Footer/>
-          </>
-          
-          } />
-
-          <Route path="/register" element={<Register/>}/>
-          {/*
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/payment" element={<PaymentForm/>}/>
-          <Route path="/payment-success" element={<PaymentSuccess />} />
-          <Route path="/payment-failure" element={<PaymentFailure />} /> */}
+        <Route path="/register/login" element={<Login />} />
+        {/* <Route path="/register" element={<Register/>}/> */}
       </Routes>
     </Router>
   );
