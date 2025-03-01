@@ -1,0 +1,126 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: 900px;
+    max-height: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+.login-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.signup-section {
+    width: 50%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.illustration img {
+    width: 100px;
+    height: 100px;
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.sign-in-btn,
+.google-btn,
+.apple-btn,
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.sign-in-btn {
+    background-color: black;
+    color: white;
+}
+
+.google-btn {
+    background-color: #db4437;
+    color: white;
+}
+
+.apple-btn {
+    background-color: black;
+    color: white;
+}
+
+.signup-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+
+.separator {
+    text-align: center;
+    margin: 10px 0;
+    color: #888;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        max-height: none;
+    }
+
+    .login-section,
+    .signup-section {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .illustration img {
+        width: 80px;
+        height: 80px;
+    }
+}

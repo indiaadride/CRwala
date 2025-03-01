@@ -1,0 +1,86 @@
+.case-studies-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #b64b23;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+
+  .back-arrow {
+    font-size: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  h2 {
+    margin: 20px 0;
+    font-size: 24px;
+    margin-left: 155px;
+    text-align: left;
+  }
+
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    place-items: center;
+  }
+
+  .case-study-card {
+    margin-left: 150px;
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+  }
+
+  .case-study-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .case-study-card p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+  }
+
+  .view-more-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .view-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+
+  .view-more-btn:hover {
+    background-color: #e64a19;
+  }
