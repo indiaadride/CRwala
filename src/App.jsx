@@ -11,72 +11,103 @@ import Testimonials from "./components/Testimonial";
 import Packages from "./components/Package";
 import ServicesComponent from "./components/Services";
 import Contact from "./components/Contact";
-
-
+import PackageScreen from "./components/PackageScreen";
+import Cartpg from "./components/Cartpage";
+import Checkoutpg from "./components/Checkoutpage";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={
+        <Route
+          path="/"
+          element={
+            <>
+              <LandingPage />
+              <CaseStudies />
+              <Testimonials />
+              <Packages />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/register/login"
+          element={
+            <>
+              <Login />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <>
+              <Register />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/services"
+          element={
+            <>
+              <ServicesComponent />
+              <Testimonials />
+              <Packages />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/case-studies"
+          element={
+            <>
+              <CaseStudies />
+              <Testimonials />
+              <Packages />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact-us"
+          element={
+            <>
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route path="/packagescreen" element={
           <>
-          
-            <LandingPage />
-            <CaseStudies />
-            <Testimonials />
-            <Packages />
-            <Footer />
+          <PackageScreen />
+          <Footer />
           </>
         } />
 
-       <Route path="/login" element={
+        <Route path="/cart" element={
           <>
-          
-            <Login/>
-            <Footer />
+          <Cartpg />
+          <Footer />
           </>
         } />
 
-       <Route path="/register" element={
+        <Route path="/checkout" element={
           <>
-         
-            <Register/>
-            <Footer />
+          <Checkoutpg />
+          <Footer />
           </>
         } />
 
-       
-
-
-
-         <Route path="/services" element={
-          <>
-            <ServicesComponent />
-            <Testimonials/>
-            <Packages/>
-           <Footer/>
-          </>
-        } />
-        <Route path="/case-studies" element={
-          <>  
-          <CaseStudies />
-          <Testimonials/>
-          <Packages/>
-          <Footer/>
-          </>
-        
-      } />
-        <Route path="/contact-us" element={
-          <>
-          <Contact />
-          <Footer/>
-          </>
-          
-          } />
-
-          <Route path="/register" element={<Register/>}/>
-          {/*
+        <Route path="/register" element={<Register />} />
+        {/*
           <Route path="/login" element={<Login/>}/>
           <Route path="/payment" element={<PaymentForm/>}/>
           <Route path="/payment-success" element={<PaymentSuccess />} />

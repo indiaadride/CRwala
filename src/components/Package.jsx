@@ -1,4 +1,5 @@
 import "../styles/package.css";
+import { useNavigate } from "react-router-dom";
 
 const packages = [
   {
@@ -29,6 +30,7 @@ const packages = [
 ];
 
 const Packages = () => {
+  const navigate = useNavigate();
   return (
     <section className="packages">
       <h2>Packages</h2>
@@ -47,7 +49,12 @@ const Packages = () => {
               ))}
             </ul>
             <p className="price">{pkg.price}</p>
-            <button className="choose-btn">Choose</button>
+            <button
+              className="choose-btn"
+              onClick={() => navigate("/packagescreen")}
+            >
+              Choose
+            </button>
           </div>
         ))}
       </div>
