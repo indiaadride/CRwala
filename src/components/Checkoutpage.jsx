@@ -1,21 +1,71 @@
 import '../styles/CheckoutPage.css';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import { useLocation } from 'react-router-dom';
 import upiIcon from "/img/upi.png";
 import visaIcon from "/img/visa.png";
 import mastercardIcon from "/img/ms.png";
 
 const CheckoutPage = () => {
   const location = useLocation();
-  const { cartTotal } = location.state || { cartTotal: 0 }; // Default 0 if no data passed
+  const { cartTotal } = location.state || { cartTotal: 0 };
 
   const [selectedMethod, setSelectedMethod] = useState('upi');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    state: '',
+    phone: '',
+    address: '',
+    email: '',
+    city: '',
+    zip: '',
+    country: ''
+  });
 
   const paymentOptions = [
     { name: "Upi Payment", icon: upiIcon },
     { name: "Visa Card", icon: visaIcon, details: "****4586" },
     { name: "Master Card", icon: mastercardIcon, details: "****7582" }
   ];
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    const order = {
+      orderItems: [
+        { name: "Product 1", qty: 1, price: cartTotal }
+      ],
+      shippingAddress: {
+        address: formData.address,
+        city: formData.city,
+        postalCode: formData.zip,
+        country: formData.country
+      },
+      paymentMethod: selectedMethod,
+      totalPrice: cartTotal
+    };
+
+    try {
+      const response = await fetch("https://cr-wala.onrender.com/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(order)
+      });
+      const result = await response.json();
+      if (result.orderId) {
+        window.location.href = `https://cr-wala.onrender.com/api/orders/${result.orderId}/pay`;
+      } else {
+        alert("Order Placed Successfully");
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
+    }
+  };
 
   return (
     <div className="checkout-container">
@@ -28,23 +78,23 @@ const CheckoutPage = () => {
         <h3>Billing Details</h3>
         <div className="billing-form">
           <div className="form-group">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="State" />
+            <input type="text" placeholder="First Name" name="firstName" onChange={handleInputChange} />
+            <input type="text" placeholder="State" name="state" onChange={handleInputChange} />
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Last Name" />
-            <input type="text" placeholder="Phone Number" />
+            <input type="text" placeholder="Last Name" name="lastName" onChange={handleInputChange} />
+            <input type="text" placeholder="Phone Number" name="phone" onChange={handleInputChange} />
           </div>
           <div className="form-group">
-            <textarea placeholder="Street Address" />
-            <input type="email" placeholder="Email Address" />
+            <textarea placeholder="Street Address" name="address" onChange={handleInputChange} />
+            <input type="email" placeholder="Email Address" name="email" onChange={handleInputChange} />
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Town/City" />
-            <input type="text" placeholder="Zip Code" />
+            <input type="text" placeholder="Town/City" name="city" onChange={handleInputChange} />
+            <input type="text" placeholder="Zip Code" name="zip" onChange={handleInputChange} />
           </div>
           <div className="form-group">
-            <input type="text" placeholder="Country/Region" />
+            <input type="text" placeholder="Country/Region" name="country" onChange={handleInputChange} />
           </div>
         </div>
       </div>
@@ -79,8 +129,7 @@ const CheckoutPage = () => {
             </label>
           ))}
         </div>
-
-        <button className='checkout-btn'>Book Your Place</button>
+        <button className='checkout-btn' onClick={handleSubmit}>Book Your Place</button>
       </div>
     </div>
   );

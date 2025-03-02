@@ -60,7 +60,7 @@ const Login = () => {
 
       <div className="signup-section">
         <div className="illustration">
-          <img src="../img/log.png" alt="Sign up illustration" />
+          <img src="/img/log.png" alt="Sign up illustration" />
         </div>
         <h2>New Here</h2>
         <p>Sign up & register to great new opportunities</p>

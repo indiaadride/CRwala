@@ -57,7 +57,7 @@ const Register = () => {
       
       <div className="signup-section">
         <div className="illustration">
-          <img src="/signup-illustration.png" alt="Sign up illustration" />
+          <img src="/img/signup-illustration.png" alt="Sign up illustration" />
         </div>
         <h2>New Here</h2>
         <p>Sign up & register to great new opportunities</p>

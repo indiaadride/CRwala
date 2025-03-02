@@ -58,62 +58,79 @@
 
 // export default ContactUs;
 
-
-
 import '../styles/ContactUs.css';
+import { useState } from 'react';
+import axios from 'axios';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('https://cr-wala.onrender.com/api/auth/enquiry', {
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        goals: formData.message
+      });
+
+      if (response.status === 200) {
+        alert('Message Sent Successfully!');
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message!');
+    }
+  };
+
   return (
     <div className="contact">
+      <div className="contact-container">
+        <h2>Contact Us</h2>
+        <p>Any question or remarks? Just write us a message!</p>
 
-    
-    <div className="contact-container">
-      <h2>Contact Us</h2>
-      <p>Any question or remarks? Just write us a message!</p>
-
-      <div className="contact-content">
-        {/* Left Side */}
-        <div className="contact-info">
-          <h3>Contact Information</h3>
-          <p>Say something to start a live chat!</p>
-
-          <ul>
-            <li>📞 +1012 3456 769</li>
-            <li>📧 demo@gmail.com</li>
-            <li>📍 132 Dartmouth Street Boston, Massachusetts 02156 United States</li>
-          </ul>
-
-         
-        </div>
-
-        {/* Right Side */}
-        <div className="contact-form">
-          <div className="form-group">
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
+        <div className="contact-content">
+          <div className="contact-info">
+            <h3>Contact Information</h3>
+            <ul>
+              <li>📞 +1012 3456 769</li>
+              <li>📧 demo@gmail.com</li>
+              <li>📍 132 Dartmouth Street Boston, Massachusetts 02156</li>
+            </ul>
           </div>
 
-          <div className="form-group">
-            <input type="email" placeholder="Email" />
-            <input type="number" placeholder="Phone Number" />
-          </div>
-
-          <div className="form-group-diff">
-            <label>Select Subject?</label>
-            <div>
-              <input type="radio" name="subject" checked />
-              <span>General Inquiry</span>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
+              <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} required />
             </div>
-          </div>
 
-          <div className="form-group">
-            <textarea placeholder="Write your message..."></textarea>
-          </div>
+            <div className="form-group">
+              <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+              <input type="number" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+            </div>
 
-          <button className="send-btn">Send Message</button>
+            <div className="form-group">
+              <textarea name="message" placeholder="Write your message..." value={formData.message} onChange={handleChange} required></textarea>
+            </div>
+
+            <button type="submit" className="send-btn">Send Message</button>
+          </form>
         </div>
       </div>
-    </div>
     </div>
   );
 };
