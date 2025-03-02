@@ -1,24 +1,32 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/packagescreen.css";
 import img1 from "/img/Office Conversation.png"
 import img2 from "/img/pak2.png"
 import { useNavigate } from "react-router-dom";
 
+
+
 const BrandingPackage = () => {
-  const nav=useNavigate()
+  const navigate = useNavigate();
+
+ 
+
   return (
     <div className="branding-container">
-          <div className="head">
-          <img src={img1} alt="Landing Page" className="landimg" />
-          <div className="hero-content">
+      <div className="head">
+        <img src={img1} alt="Landing Page" className="landimg" />
+        <div className="hero-content">
           <h2>Build Your Personal Brand with the Right Environment</h2>
-          <p>Leverage our premium coworking space and exclusive access to all rooms to enhance your career journey.</p>
-        <button className="cta-button">Get Started</button>
-          </div>
-          
+          <p>
+            Leverage our premium coworking space and exclusive access to all
+            rooms to enhance your career journey.
+          </p>
+          <button className="cta-button">Get Started</button>
         </div>
+      </div>
 
-        <div className="package-section">
-            <h2 className="bt-heading">Personal Branding Package</h2>
+      <div className="package-section">
+        <h2 className="bt-heading">Personal Branding Package</h2>
         <div className="package-content">
           <div className="package-text">
             <div className="price-tag">Rs. 2000/session</div>
@@ -38,31 +46,33 @@ const BrandingPackage = () => {
         </div>
       </div>
 
-
       <div className="ideal-for-container">
-      <h2>Ideal For</h2>
-      <div className="cards-container">
-        <div className="card">
-          <img src="img/ent.png" alt="Entrepreneurs" />
-          <div className="card-text">
-            <span className="badge">Entrepreneurs</span>
-            <p>Need a <span className="focused">focused</span> workspace</p>
+        <h2>Ideal For</h2>
+        <div className="cards-container">
+          <div className="card">
+            <img src="img/ent.png" alt="Entrepreneurs" />
+            <div className="card-text">
+              <span className="badge">Entrepreneurs</span>
+              <p>
+                Need a <span className="focused">focused</span> workspace
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div className="card">
-          <img src="/img/inf.png" alt="Influencers" />
-          <div className="card-text">
-            <span className="badge">Influencers</span>
-            <p>Productive environment</p>
+          <div className="card">
+            <img src="/img/inf.png" alt="Influencers" />
+            <div className="card-text">
+              <span className="badge">Influencers</span>
+              <p>Productive environment</p>
+            </div>
           </div>
-        </div>
 
-        <div className="card">
-          <img src="/img/st.png" alt="Startups" />
-          <div className="card-text">
-            <span className="badge">Startups</span>
-            <p>Meet like-minded professionals</p>
+          <div className="card">
+            <img src="/img/st.png" alt="Startups" />
+            <div className="card-text">
+              <span className="badge">Startups</span>
+              <p>Meet like-minded professionals</p>
+            </div>
           </div>
         </div>
       </div>
@@ -70,6 +80,7 @@ const BrandingPackage = () => {
       <button onClick={()=>nav("/cart")} className="book-now">BOOK NOW</button>
       <p className="slots">Limited Slots Available – Reserve Yours Today!</p>
     </div>
+
 
     </div>
   );
