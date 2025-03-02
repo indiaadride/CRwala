@@ -14,6 +14,10 @@ import Contact from "./components/Contact";
 import PackageScreen from "./components/PackageScreen";
 import Cartpg from "./components/Cartpage";
 import Checkoutpg from "./components/Checkoutpage";
+import PaymentForm from "./components/PaymentForm";
+import PaymentSuccess from "./components/PaymentSuccess";
+import PaymentFailure from "./components/PaymentFailed";
+
 
 function App() {
   return (
@@ -105,6 +109,12 @@ function App() {
           <Footer />
           </>
         } />
+
+<Route path="/paymentform" element={<PaymentForm />} />
+
+<Route path="/payment-success" element={<PaymentSuccess />} />
+<Route path="/payment-failure" element={<PaymentFailure />} />
+
 
         <Route path="/register" element={<Register />} />
         {/*

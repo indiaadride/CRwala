@@ -1,12 +1,13 @@
 import '../styles/CheckoutPage.css';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import upiIcon from "/img/upi.png";
 import visaIcon from "/img/visa.png";
 import mastercardIcon from "/img/ms.png";
 
 const CheckoutPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { cartTotal } = location.state || { cartTotal: 0 };
 
   const [selectedMethod, setSelectedMethod] = useState('upi');
@@ -58,7 +59,7 @@ const CheckoutPage = () => {
       });
       const result = await response.json();
       if (result.orderId) {
-        window.location.href = `https://cr-wala.onrender.com/api/orders/${result.orderId}/pay`;
+        navigate("/paymentform", { state: { orderId: result.orderId } });
       } else {
         alert("Order Placed Successfully");
       }
