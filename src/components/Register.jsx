@@ -19,9 +19,10 @@ const Register = () => {
       });
 
       alert("Registration successful! Please log in.");
-      navigate("login"); 
+      navigate("/login"); 
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed.");
+      console.log(err);
     }
   };
 
@@ -29,7 +30,7 @@ const Register = () => {
     <div className="container">
        <img className="logo1" src="../img/logo.png" alt="Logo" />
       <div className="login-section">
-        <div className="header2">Create Account</div>
+        <div className="header1">Create Account</div>
         <div className="content">Enter your Details</div>
         
         <form onSubmit={handleRegister} className="form-container">
@@ -58,10 +59,10 @@ const Register = () => {
       
       <div className="signup-section">
         <div className="illustration">
-          <img src="../img/log.png" alt="Sign up illustration" />
+          <img className="img" src="../img/log.png" alt="Sign up illustration" />
         </div>
-        <h2>New Here</h2>
-        <p>Sign up & register to great new opportunities</p>
+        <div className="header2">New Here</div>
+        <div className="content">Sign up & register to great new opportunities</div>
         <button className="signup-btn" onClick={() => navigate("login")}>Login</button>
       </div>
     </div>

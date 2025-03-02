@@ -26,7 +26,7 @@ const Login = () => {
     <div className="container">
       <img className="logo1" src="../img/logo.png" alt="Logo" />
       <div className="login-section">
-        <div className="header2">Log in To Your Account</div>
+        <div className="header1">Log in To Your Account</div>
         <div className="content">Enter your account credentials</div>
 
         <form onSubmit={handleLogin} className="form-container">
@@ -55,10 +55,10 @@ const Login = () => {
 
       <div className="signup-section">
         <div className="illustration">
-          <img src="/img/log.png" alt="Sign up illustration" />
+          <img className="img" src="/img/log.png" alt="Sign up illustration" />
         </div>
-        <h2 className="header1">New Here?</h2>
-        <p className="content">Sign up & register for great new opportunities</p>
+        <div className="header2">New Here?</div>
+        <div className="content">Sign up & register for great new opportunities</div>
         <button className="signup-btn" onClick={() => navigate("/register")}>Sign up</button>
       </div>
     </div>

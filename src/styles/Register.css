@@ -11,11 +11,18 @@ body, html {
     font-size: 20px;
     padding: 10px;
 }
-.header2{
+.header1{
     font-size: 30px;
     padding: 10px;
     font-weight: 500px;
     background-color: white;
+}
+
+.header2{
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 500px;
+    background-color: black;
 }
 
 .logo1{
@@ -39,7 +46,10 @@ body, html {
     background-color: white;
 }
 
-/* Left Section - Login */
+.img{
+    width:500 ;
+}
+
 .login-section {
     width: 50%;
     display: flex;
@@ -62,12 +72,12 @@ body, html {
     text-align: center;
 }
 
-.illustration img {
+/* .illustration img {
     width: 100px;
     height: 100px;
-}
+} */
 
-/* Form Styling */
+
 .form-container {
     width: 100%;
     max-width: 300px;
@@ -115,15 +125,15 @@ body, html {
     border: 1px solid black;
 }
 
-/* Separator */
+
 .separator {
     text-align: center;
     margin: 10px 0;
     color: #888;
 }
 
-/* Make Login Page Responsive */
-@media (max-width: 768px) {
+
+@media (max-width: 900px) {
     .container {
         position: relative;
         left: 15px;
@@ -146,4 +156,12 @@ body, html {
     .illustration img {
        display: none;
     }
+    
+}
+
+@media (max-width: 1024px) {
+   .logo1{
+    left: 100px;
+   }
+    
 }
