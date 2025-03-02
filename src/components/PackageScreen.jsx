@@ -1,8 +1,10 @@
 import "../styles/packagescreen.css";
 import img1 from "/img/Office Conversation.png"
 import img2 from "/img/pak2.png"
+import { useNavigate } from "react-router-dom";
 
 const BrandingPackage = () => {
+  const nav=useNavigate()
   return (
     <div className="branding-container">
           <div className="head">
@@ -65,7 +67,7 @@ const BrandingPackage = () => {
         </div>
       </div>
 
-      <button className="book-now">BOOK NOW</button>
+      <button onClick={()=>nav("/cart")} className="book-now">BOOK NOW</button>
       <p className="slots">Limited Slots Available – Reserve Yours Today!</p>
     </div>
 

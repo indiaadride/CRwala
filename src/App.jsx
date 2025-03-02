@@ -38,7 +38,7 @@ function App() {
         />
 
         <Route
-          path="/register/login"
+          path="/login"
           element={
             <>
               <Login />

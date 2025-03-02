@@ -26,8 +26,8 @@ const Login = () => {
     <div className="container">
       <img className="logo1" src="../img/logo.png" alt="Logo" />
       <div className="login-section">
-        <h2 className="header2">Log in To Your Account</h2>
-        <p className="content">Enter your account credentials</p>
+        <div className="header2">Log in To Your Account</div>
+        <div className="content">Enter your account credentials</div>
 
         <form onSubmit={handleLogin} className="form-container">
           <input
