@@ -1,0 +1,85 @@
+.payment-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  .h2{
+    color: black;
+  }
+  
+  .payment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #a52a2a;
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .payment-method {
+    margin: 20px 0;
+  }
+  .payment-method h2{
+    color: black;
+  }
+  
+  .payment-icons img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  .payment-form fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .payment-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .payment-form input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-expiration {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pay-button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .pay-button:hover {
+    background-color: #333;
+  }
+  
