@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Register.css";
@@ -27,9 +27,10 @@ const Register = () => {
 
   return (
     <div className="container">
+       <img className="logo1" src="../img/logo.png" alt="Logo" />
       <div className="login-section">
-        <h1>Create Account</h1>
-        <p>Enter your Details</p>
+        <div className="header2">Create Account</div>
+        <div className="content">Enter your Details</div>
         
         <form onSubmit={handleRegister} className="form-container">
           <input
@@ -57,7 +58,7 @@ const Register = () => {
       
       <div className="signup-section">
         <div className="illustration">
-          <img src="/signup-illustration.png" alt="Sign up illustration" />
+          <img src="../img/log.png" alt="Sign up illustration" />
         </div>
         <h2>New Here</h2>
         <p>Sign up & register to great new opportunities</p>

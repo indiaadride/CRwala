@@ -7,6 +7,24 @@ body, html {
     height: 100%;
 }
 
+.content{
+    font-size: 20px;
+    padding: 10px;
+}
+.header2{
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 500px;
+    background-color: white;
+}
+
+.logo1{
+    position: absolute;
+    bottom: 550px;
+    left: 350px;
+    top: 150px;
+ }
+
 .container {
     margin-top: 40px;
     margin-bottom: 100px;
@@ -107,10 +125,16 @@ body, html {
 /* Make Login Page Responsive */
 @media (max-width: 768px) {
     .container {
+        position: relative;
+        left: 15px;
         flex-direction: column;
-        width: 90%;
+        width: 100%;
         height: auto;
         max-height: none;
+        justify-content: center;
+        align-items: center;
+        
+        
     }
 
     .login-section,
@@ -120,7 +144,6 @@ body, html {
     }
 
     .illustration img {
-        width: 80px;
-        height: 80px;
+       display: none;
     }
 }
