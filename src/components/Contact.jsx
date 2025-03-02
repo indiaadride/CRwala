@@ -58,7 +58,7 @@
 
 // export default ContactUs;
 
-import '../styles/ContactUs.css';
+import '../styles/contactUs.css';
 import { useState } from 'react';
 import axios from 'axios';
 
