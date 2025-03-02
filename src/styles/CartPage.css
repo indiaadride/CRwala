@@ -27,6 +27,7 @@
     /* background: #111; */
     margin-bottom: 20px;
     border-radius: 10px;
+    align-items: center;
   }
   
   .cart-item img {
@@ -100,3 +101,23 @@
     margin-bottom: 20px;
   }
   
+  @media (max-width: 900px) {
+    .cart-item{
+      gap: 2px;
+     flex-direction: column;
+    }
+    .cart-item-details{
+      /* width: 100px; */
+      margin-left: 10px;
+    }
+     
+    .cart-item img{
+     width: 200px;
+     margin-left: 10px;
+    }
+    .cart-container{
+      width: 100%;
+    }
+
+  
+}

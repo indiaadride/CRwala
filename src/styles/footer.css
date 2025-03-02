@@ -115,3 +115,200 @@
 }
 
 
+/* Footer Styling */
+.footer {
+  background-color: black;
+  color: white;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Footer Container */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+/* Logo Section */
+.footer-logo {
+  /* width: 100%; */
+  display: flex;
+  gap: 10px;
+  /* justify-content: center; */
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Right Section */
+.footer-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Social Media & Subscription */
+.social-subscribe {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  flex-wrap: wrap;
+}
+
+.social, .subscribe {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: gray;
+}
+
+/* Subscription Box */
+.subscribe-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  width: 60%;
+}
+
+.subscribe-box button {
+  padding: 10px 15px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Footer Links */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: gray;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 900px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .footer-logo {
+      justify-content: center;
+  }
+
+  .footer-links {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-column {
+      text-align: center;
+  }
+
+  .social-subscribe {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .subscribe-box {
+      flex-direction: column;
+      width: 80%;
+  }
+
+  .subscribe-box input {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+  .footer{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+      padding: 30px 15px;
+      width: 100%;
+  }
+
+  .social-icons {
+      gap: 10px;
+      
+  }
+
+  .footer-links {
+      flex-direction: column;
+      align-items: center;
+  }
+}

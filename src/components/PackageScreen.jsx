@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/packagescreen.css";
-import img1 from "/img/Office Conversation.png";
-import img2 from "/img/pak2.png";
+import img1 from "/img/Office Conversation.png"
+import img2 from "/img/pak2.png"
+import { useNavigate } from "react-router-dom";
+
+
 
 const BrandingPackage = () => {
   const navigate = useNavigate();
 
-  const handleBookNow = () => {
-    navigate("/cart");
-  };
+ 
 
   return (
     <div className="branding-container">
@@ -74,12 +75,13 @@ const BrandingPackage = () => {
             </div>
           </div>
         </div>
-
-        <button className="book-now" onClick={handleBookNow}>
-          BOOK NOW
-        </button>
-        <p className="slots">Limited Slots Available – Reserve Yours Today!</p>
       </div>
+
+      <button onClick={()=>nav("/cart")} className="book-now">BOOK NOW</button>
+      <p className="slots">Limited Slots Available – Reserve Yours Today!</p>
+    </div>
+
+
     </div>
   );
 };
