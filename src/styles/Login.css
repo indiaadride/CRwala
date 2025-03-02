@@ -7,24 +7,6 @@ body, html {
     height: 100%;
 }
 
-.content{
-    font-size: 20px;
-    font-weight: lighter;
-    /* padding: 10px; */
-}
-.header2{
-    font-size: 30px;
-    padding: 10px;
-    font-weight: 500px;
-    background-color: white;
-}
-
-.header1{
-    font-size: 30px;
-    /* padding: 10px; */
-}
-
-
 .container {
     margin-top: 40px;
     margin-bottom: 100px;
@@ -37,7 +19,6 @@ body, html {
     border-radius: 10px;
     overflow: hidden;
     background-color: white;
-   
 }
 
 
@@ -59,21 +40,13 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
     text-align: center;
 }
 
 .illustration img {
-    width: 80%;
-    max-width: 300px; 
-    height: auto; 
-    border-radius: 10px;
-}
-
-.logo1{
-   position: absolute;
-   bottom: 550px;
-   left: 350px;
-   top: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 
@@ -96,7 +69,7 @@ body, html {
 .apple-btn,
 .signup-btn {
     width: 100%;
-    /* padding: 10px; */
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -108,7 +81,7 @@ body, html {
     color: white;
 }
 
-/* .google-btn {
+.google-btn {
     background-color: #db4437;
     color: white;
 }
@@ -116,7 +89,7 @@ body, html {
 .apple-btn {
     background-color: black;
     color: white;
-} */
+}
 
 .signup-btn {
     background-color: white;
@@ -134,34 +107,20 @@ body, html {
 
 @media (max-width: 768px) {
     .container {
-        position: relative;
-        right: 10%;
         flex-direction: column;
-        /* width: 100%; */
+        width: 90%;
         height: auto;
         max-height: none;
-        justify-content: center;
-        align-items: center;
-        
-        
     }
-     .login-section{
-        width:100%;
-        padding: 10%;
-     }
-     .signup-section{
+
+    .login-section,
+    .signup-section {
         width: 100%;
-     }
+        padding: 40px;
+    }
 
     .illustration img {
-       display: none;
-    }
-
-    .logo1{
-       display: none;
-    }
-
-    .signup-btn{
-        width: 50%;
+        width: 80px;
+        height: 80px;
     }
 }

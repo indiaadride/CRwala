@@ -1,9 +1,10 @@
 import { Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const ProtectedRoute = ({ children }) => {
-  const isRegistered = localStorage.getItem("isRegistered"); // Check if user registered
+  const isPaymentVerified = Cookies.get("paymentVerified");
 
-  return isRegistered ? children : <Navigate to="/register" />;
+  return isPaymentVerified ? children : <Navigate to="/cart" />;
 };
 
 export default ProtectedRoute;

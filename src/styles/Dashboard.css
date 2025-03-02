@@ -1,0 +1,143 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  nav ul .active {
+    background: #ff5722;
+    border-radius: 5px;
+  }
+  
+  .logout {
+    margin-top: auto;
+    cursor: pointer;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .search-bar {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .profile {
+    background: #eee;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .black-card {
+    background: black;
+    color: white;
+  }
+  
+  .client-management {
+    background: white;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .client-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .add-client-btn {
+    background: #ff5722;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .status.active {
+    color: green;
+  }
+  
+  .status.inactive {
+    color: red;
+  }
+  
+  .analytics {
+    background: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  
+  .chart {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .bar {
+    width: 20px;
+    background: #ff5722;
+    border-radius: 3px;
+  }

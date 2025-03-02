@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Register.css";
@@ -19,19 +19,17 @@ const Register = () => {
       });
 
       alert("Registration successful! Please log in.");
-      navigate("/login"); 
+      navigate("login"); 
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed.");
-      console.log(err);
     }
   };
 
   return (
     <div className="container">
-       <img className="logo1" src="../img/logo.png" alt="Logo" />
       <div className="login-section">
-        <div className="header1">Create Account</div>
-        <div className="content">Enter your Details</div>
+        <h1>Create Account</h1>
+        <p>Enter your Details</p>
         
         <form onSubmit={handleRegister} className="form-container">
           <input
@@ -59,10 +57,10 @@ const Register = () => {
       
       <div className="signup-section">
         <div className="illustration">
-          <img className="img" src="../img/log.png" alt="Sign up illustration" />
+          <img src="/img/signup-illustration.png" alt="Sign up illustration" />
         </div>
-        <div className="header2">New Here</div>
-        <div className="content">Sign up & register to great new opportunities</div>
+        <h2>New Here</h2>
+        <p>Sign up & register to great new opportunities</p>
         <button className="signup-btn" onClick={() => navigate("login")}>Login</button>
       </div>
     </div>

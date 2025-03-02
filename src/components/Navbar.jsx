@@ -4,8 +4,11 @@ import logoImg from "/img/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext"; // ✅ Correct import
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { isAuthenticated } = useContext(AuthContext); // Use useContext here
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -40,21 +43,26 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/#">Testimonial</Link>
-        </li>{" "}
-        {/* For Testimonials, use a hash link or section ID */}
+        </li>
         <li>
           <Link to="/contact-us">Contact</Link>
         </li>
-        <li>
-        <Link to="/register">
-            <button className="register-btn">Register</button>
-          </Link>
-        </li>
-        <li>
-        <Link to="/login">
-            <button className="login-btn">Login</button>
-          </Link>
-        </li>
+        {!isAuthenticated && (
+          <li>
+            <Link to="/register">
+              <button className="register-btn">Register</button>
+            </Link>
+          </li>
+
+          
+        )}
+        {!isAuthenticated && (
+          <li>
+          <Link to="/login">
+              <button className="login-btn">Login</button>
+            </Link>
+          </li>          
+        )}
       </ul>
     </nav>
   );

@@ -7,31 +7,6 @@ body, html {
     height: 100%;
 }
 
-.content{
-    font-size: 20px;
-    padding: 10px;
-}
-.header1{
-    font-size: 30px;
-    padding: 10px;
-    font-weight: 500px;
-    background-color: white;
-}
-
-.header2{
-    font-size: 30px;
-    padding: 10px;
-    font-weight: 500px;
-    background-color: black;
-}
-
-.logo1{
-    position: absolute;
-    bottom: 550px;
-    left: 350px;
-    top: 150px;
- }
-
 .container {
     margin-top: 40px;
     margin-bottom: 100px;
@@ -46,10 +21,7 @@ body, html {
     background-color: white;
 }
 
-.img{
-    width:500 ;
-}
-
+/* Left Section - Login */
 .login-section {
     width: 50%;
     display: flex;
@@ -72,12 +44,12 @@ body, html {
     text-align: center;
 }
 
-/* .illustration img {
+.illustration img {
     width: 100px;
     height: 100px;
-} */
+}
 
-
+/* Form Styling */
 .form-container {
     width: 100%;
     max-width: 300px;
@@ -125,26 +97,20 @@ body, html {
     border: 1px solid black;
 }
 
-
+/* Separator */
 .separator {
     text-align: center;
     margin: 10px 0;
     color: #888;
 }
 
-
-@media (max-width: 900px) {
+/* Make Login Page Responsive */
+@media (max-width: 768px) {
     .container {
-        position: relative;
-        left: 15px;
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         height: auto;
         max-height: none;
-        justify-content: center;
-        align-items: center;
-        
-        
     }
 
     .login-section,
@@ -154,14 +120,7 @@ body, html {
     }
 
     .illustration img {
-       display: none;
+        width: 80px;
+        height: 80px;
     }
-    
-}
-
-@media (max-width: 1024px) {
-   .logo1{
-    left: 100px;
-   }
-    
 }
