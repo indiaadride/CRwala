@@ -18,128 +18,100 @@ import PaymentForm from "./components/PaymentForm";
 import PaymentSuccess from "./components/PaymentSuccess";
 import PaymentFailure from "./components/PaymentFailed";
 import AuthContext, { AuthProvider } from "./context/AuthContext";
+import Homepage from "./components/Homepage";
 import Dashboard from "./components/Admin";
 
 function App() {
   return (
     <AuthProvider>
-    
-    <Router>
-    
-
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <LandingPage />
-              <CaseStudies />
-              <Testimonials />
-              <Packages />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route
-          path="/login"
-          element={
-            <>
-              <Login />
-              <Footer />
-            </>
-          }
-        />
-
-
-        <Route
-          path="/register"
-          element={
-            <>
-              <Register />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route
-          path="/services"
-          element={
-            <>
-              <ServicesComponent />
-              <Testimonials />
-              <Packages />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/case-studies"
-          element={
-            <>
-              <CaseStudies />
-              <Testimonials />
-              <Packages />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/contact-us"
-          element={
-            <>
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route path="/packagescreen" element={
-          <>
-          <PackageScreen />
-          <Footer />
-          </>
-        } />
-
-        <Route path="/cart" element={
-          <>
-          <Cartpg />
-          <Footer />
-          </>
-        } />
-
-        <Route path="/checkout" element={
-          <>
-          <Checkoutpg />
-          <Footer />
-          </>
-        } />
-
-<Route
-          path="/admindashboard"
-          element={
-            <>
-              <Dashboard />
-            </>
-          }
-        />
-
-<Route path="/paymentform" element={<PaymentForm />} />
-
-<Route path="/payment-success" element={<PaymentSuccess />} />
-<Route path="/payment-failure" element={<PaymentFailure />} />
-
-
-        <Route path="/register" element={<Register />} />
-        {/*
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/payment" element={<PaymentForm/>}/>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<><Homepage />
+         <Footer /> </>} />
+          <Route
+            path="/landing"
+            element={
+              <>
+                <LandingPage />
+                <CaseStudies />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Login />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <>
+                <Register />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <>
+                <ServicesComponent />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/case-studies"
+            element={
+              <>
+                <CaseStudies />
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            }
+            
+          />
+           <Route
+            path="/testimonial"
+            element={
+              <>
+               
+                <Testimonials />
+                <Packages />
+                <Footer />
+              </>
+            }
+            
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <>
+                <Contact />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/packagescreen" element={<><PackageScreen /><Footer /></>} />
+          <Route path="/cart" element={<><Cartpg /><Footer /></>} />
+          <Route path="/checkout" element={<><Checkoutpg /><Footer /></>} />
+          <Route path="/admindashboard" element={<Dashboard />} />
+          <Route path="/paymentform" element={<PaymentForm />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
-          <Route path="/payment-failure" element={<PaymentFailure />} /> */}
-      </Routes>
-    </Router>
-      
+          <Route path="/payment-failure" element={<PaymentFailure />} />
+        </Routes>
+      </Router>
     </AuthProvider>
   );
 }

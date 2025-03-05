@@ -4,6 +4,7 @@ import axios from "axios";
 import "../styles/Register.css";
 
 const Register = () => {
+  const [userName, setuserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -14,6 +15,7 @@ const Register = () => {
 
     try {
       const response = await axios.post("https://cr-wala.onrender.com/api/auth/register", {
+        userName,
         email,
         password,
       });
@@ -34,6 +36,16 @@ const Register = () => {
         <div className="content">Enter your Details</div>
         
         <form onSubmit={handleRegister} className="form-container">
+
+        <input
+            type="User name"
+            placeholder="your user name"
+            className="input-field"
+            value={userName}
+            onChange={(e) => setuserName(e.target.value)}
+            required
+          />
+
           <input
             type="email"
             placeholder="Enter email"

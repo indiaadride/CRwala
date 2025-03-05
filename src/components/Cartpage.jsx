@@ -1,44 +1,13 @@
 import '../styles/CartPage.css';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useState } from 'react';
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const [cartTotal, setCartTotal] = useState(2000);
-  const [loading, setLoading] = useState(false);
+  const [cartTotal] = useState(2000);
 
-  const handleCheckout = async () => {
-    setLoading(true);
-    try {
-      const orderData = {
-        orderItems: [
-          {
-            name: 'Personal Branding Package',
-            qty: 1,
-            price: cartTotal,
-          },
-        ],
-        shippingAddress: {
-          address: '123 Main Street',
-          city: 'Mumbai',
-          postalCode: '400001',
-          country: 'India',
-        },
-        paymentMethod: 'Cash On Delivery',
-        totalPrice: cartTotal,
-      };
-
-      const response = await axios.post('https://cr-wala.onrender.com/api/orders', orderData);
-      console.log(response.data);
-      alert('Order Placed Successfully');
-      navigate('/checkout', { state: { cartTotal } });
-    } catch (error) {
-      console.error('Order Failed:', error);
-      alert('Failed to place order');
-    } finally {
-      setLoading(false);
-    }
+  const handleCheckout = () => {
+    navigate('/checkout', { state: { cartTotal } });
   };
 
   return (
@@ -73,8 +42,8 @@ const CartPage = () => {
         </div>
       </div>
 
-      <button className="checkout-btn" onClick={handleCheckout} disabled={loading}>
-        {loading ? 'Processing...' : 'Proceed to Checkout'}
+      <button className="checkout-btn" onClick={handleCheckout}>
+        Proceed to Checkout
       </button>
     </div>
   );

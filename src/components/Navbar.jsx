@@ -1,67 +1,60 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 import "../styles/navbar.css";
-import logoImg from "/img/logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import AuthContext from "../context/AuthContext"; // ✅ Correct import
-import { useContext } from "react";
+import { FaBars, FaSearch } from "react-icons/fa"; // Import icons
 
 const Navbar = () => {
-  const { isAuthenticated } = useContext(AuthContext); // Use useContext here
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+    setIsAuthenticated(!!localStorage.getItem("token"));
+  }, [isAuthenticated]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    navigate("/login");
   };
 
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <div className="logo">
-          <img src={logoImg} alt="Logo" className="logo-img" />
-        </div>
-        <div className="menu-icon" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
-        </div>
+      <div className="nav-left">
+        {/* Logo */}
+        <img src="/img/logo.png" alt="Logo" className="nav-logo" />
       </div>
 
-      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <div className="search-box">
-          <FontAwesomeIcon icon={faBars} className="menu-icon" />
-          <input type="text" placeholder="Hinted search text" />
-          <FontAwesomeIcon icon={faSearch} className="search-icon" />
-        </div>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/services">Services</Link>
-        </li>
-        <li>
-          <Link to="/case-studies">Case Studies</Link>
-        </li>
-        <li>
-          <Link to="/#">Testimonial</Link>
-        </li>
-        <li>
-          <Link to="/contact-us">Contact</Link>
-        </li>
-        {!isAuthenticated && (
-          <li>
-            <Link to="/register">
-              <button className="register-btn">Register</button>
-            </Link>
-          </li>
+      {/* Search Bar */}
+      <div className="search-bar">
+        <FaBars className="menu-icon" />
+        <input
+          type="text"
+          placeholder="Hinted search text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <FaSearch className="search-icon" />
+      </div>
 
-          
-        )}
-        {!isAuthenticated && (
-          <li>
-          <Link to="/login">
-              <button className="login-btn">Login</button>
-            </Link>
-          </li>          
+      <ul className="nav-links">
+        {token ? (
+          <>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/case-studies">Case Studies</Link></li>
+            <li><Link to="/testimonial">Testimonial</Link></li>
+            <li><Link to="/contact-us">Contact</Link></li>
+            <li><button className="logout-btn" onClick={handleLogout}>Logout</button></li>
+          </>
+        ) : (
+          <>
+            <li><Link to="/register">Register</Link></li>
+            <li><Link to="/login">Login</Link></li>
+          </>
         )}
       </ul>
     </nav>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../context/AuthContext";
 import "../styles/Login.css";
 
 const Login = () => {
@@ -8,15 +9,17 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post("https://cr-wala.onrender.com/api/auth/login", { email, password });
-      localStorage.setItem("token", response.data.token);
+
+      localStorage.setItem("token", response.data.token); // ✅ Store token
+      setIsAuthenticated(true); // ✅ Update authentication state
       alert("Login successful!");
-      navigate("/");
+      navigate("/landing");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed.");
     }

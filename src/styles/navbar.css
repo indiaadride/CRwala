@@ -17,30 +17,29 @@
 
 /* Logo */
 .logo {
-  font-size: 22px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   margin-right: 20px;
 }
 
-.logo-bold {
-  color: black;
-}
-
-.logo-light {
-  color: teal;
+.logo img {
+  height: 40px; /* Adjust size as needed */
 }
 
 /* Search Box */
 .search-box {
-  /* margin-left: 350px; */
   display: flex;
   align-items: center;
   background: white;
-  border-radius: 20px;
+  border-radius: 160px;
   padding: 5px 10px;
-  border: 1px solid #ccc;
+  border: 8px solid #ccc;
+  
+}
+.search-bar {
+  padding: 8px;
+  border-radius: 45px;
+  border: 1px solid #ddd;
 }
 
 .search-box input {
@@ -48,20 +47,22 @@
   outline: none;
   padding: 5px;
   width: 200px;
+  font-size: 14px;
 }
 
 .menu-icon {
   margin-right: 8px;
   color: teal;
+  cursor: pointer;
 }
 
 .search-icon {
   margin-left: 8px;
   color: teal;
+  cursor: pointer;
 }
 
 /* Navigation Links */
-/* Responsive Design */
 .nav-links {
   display: flex;
   align-items: center;
@@ -72,24 +73,31 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.nav-links.open {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #f8f8f8;
-  padding: 20px;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
 }
 
-.menu-icon {
-  display: none;
+/* Login & Register Buttons */
+.login-btn,
+.register-btn {
+  background: #ff5a2d; /* Orange background */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
 }
 
+.login-btn:hover,
+.register-btn:hover {
+  background: #e54d22; /* Darker orange on hover */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -99,32 +107,16 @@
 
   .nav-links.open {
     display: flex;
+    background: #ff5a2d; /* Orange background for mobile menu */
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .menu-icon {
     display: block;
   }
 }
-
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-}
-
-.register-btn {
-  background: #ff5a2d;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.register-btn:hover {
-  background: #e54d22;
-}
-
-

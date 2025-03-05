@@ -1,9 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+
+  useEffect(() => {
+    setIsAuthenticated(!!localStorage.getItem("token")); // ✅ Check for token
+  }, []);
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
@@ -12,4 +16,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthContext; // This line is important for default export
+export default AuthContext;
